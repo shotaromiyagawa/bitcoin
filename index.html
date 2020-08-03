@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <h2>
+      Bitcoin Price
+    </h2>
+    <section v-if="hasError">
+      Error.
+    </section>
+    <section v-else>
+      <div v-if = "loading">
+        Loading...
+      </div>
+    <ul v-cloak>
+      <li v-for="(rate, currency) in bpi">
+        {{currency}} : {{rate.rate_float | currencyDecimal}}
+      </li>
+       
+    </ul>
+  </section>
+
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="main.js"></script>
+  
+</body>
+</html>
